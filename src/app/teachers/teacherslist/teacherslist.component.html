@@ -1,0 +1,57 @@
+  
+<div class="card">
+    <div class="card-header">
+         <p>Manage Teachers </p> 
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" 
+            (click)="AddTeacher()" >
+            Add Teacher
+          </button>
+        </div>    
+    <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th hidden scope="col">Id</th>
+                <th scope="col"> Name</th>
+                <th scope="col">Date birthday</th>
+                <th scope="col">Subjects</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of Teachers" >
+                <td hidden >{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.birthDate}}</td>
+                <td>{{item.mainSubjectTeaching}}</td>
+                <th scope="col">
+                    <button  type="button" class="btn btn-danger" id="remove"  (click)="DeleteTeachers(item)">Delete</button> &nbsp;&nbsp;&nbsp;
+                    <button  type="button" class="btn btn-info" id="remove"   type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="UpDatetTeacher(item)">Edit</button> &nbsp;&nbsp;&nbsp;
+                </th>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+ 
+ 
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModelTitle}}</h5>
+          <button type="button" id="closemodel" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-teachersform [Teacher]="Teacher" *ngIf="ActiveAddEditComp"></app-teachersform>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+ 

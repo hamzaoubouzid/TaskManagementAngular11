@@ -1,0 +1,51 @@
+
+<form #Students = "ngForm"  (ngSubmit) = "onClickSubmit(Students.value)" >
+    <div class="form-group" >
+        <input
+              type="hidden"
+              class="form-control"
+              name="id"
+              id="id"
+              [(ngModel)]="student.id"
+              placeholder="Enter you Name" ngModel />
+    </div>
+
+    <div class="form-group">
+        <label> Name Student :</label>
+        <input
+              type="text"
+              class="form-control"
+              name="name"
+              id="name"
+              [(ngModel)]="student.name"
+              placeholder="Enter you Name" ngModel />
+    </div>
+    <br/>
+
+    <div class="form-group">
+        <label> Birth Date :</label>
+        <input
+              type="date"
+              name="birthDate"
+              id="birthDate"
+              class="form-control"
+              [(ngModel)]="student.birthDate"
+              ngModel />
+    </div>
+    <br/>
+    <div class="form-group">
+        <label> Birth Date :</label>
+        <input
+              type="number"
+              name="yearOfStudy"
+              id="yearOfStudy"
+              class="form-control"
+              [(ngModel)]="student.yearOfStudy"
+              ngModel />
+    </div>
+    <br/>
+    <button type="submit"  *ngIf="student.yearOfStudy == 0" class="btn btn-primary" >Save</button>&nbsp;&nbsp;&nbsp;
+
+    <button type="button" (click)="OnClickUpDateStudent(Students.value)"   *ngIf="student.yearOfStudy!= 0 " class="btn btn-primary" >Edit</button>
+ </form>
+  

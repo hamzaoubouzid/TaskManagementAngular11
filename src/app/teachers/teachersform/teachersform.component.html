@@ -1,0 +1,50 @@
+ 
+<form #Teachers = "ngForm"   (ngSubmit) = "onClickSubmit(Teachers.value)" >
+    <div class="form-group" >
+        <input
+              type="hidden"
+              class="form-control"
+              name="id"
+              id="id"
+              [(ngModel)]="Teacher.id"
+              placeholder="Enter you Name" ngModel />
+    </div>
+
+    <div class="form-group">
+        <label> Name Teacher :</label>
+        <input
+              type="text"
+              class="form-control"
+              name="name"
+              id="name"
+              [(ngModel)]="Teacher.name"
+              placeholder="Enter you Name" ngModel />
+    </div>
+    <br/>
+
+    <div class="form-group">
+        <label> Birth Date :</label>
+        <input
+              type="date"
+              name="birthDate"
+              id="birthDate"
+              [(ngModel)]="Teacher.birthDate"
+              class="form-control"
+              ngModel />
+    </div>
+    <br/>
+    <div class="form-group">
+        <label> Main Subject Teaching</label>
+        <input
+              type="text"
+              name="mainSubjectTeaching"
+              id="mainSubjectTeaching"
+              class="form-control"
+              [(ngModel)]="Teacher.mainSubjectTeaching"
+              ngModel />
+    </div>
+    <br/>
+    <button type="submit"  *ngIf="Teacher.id == ''" class="btn btn-primary" >Save</button>&nbsp;&nbsp;&nbsp;
+    <button type="button" (click)="OnClickUpDateTeacher(Teachers.value)"   *ngIf="Teacher.id!= '' " class="btn btn-primary" >Edit</button>
+ </form>
+  
